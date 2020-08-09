@@ -1,0 +1,25 @@
+<%- partial("_partial/head") %>
+    <body>
+
+        <!--侧边栏-->
+        <div class="sideBar">
+            <%- partial("_partial/sideBar") %>
+        </div>
+
+        <div class="main">
+            <div id="main" class="main-main">
+                <%- body %>
+            </div>
+
+            <!--导航栏-->
+            <div class="nav">
+                <%- partial("_partial/nav") %>
+            </div>
+
+            <!--底部-->
+            <div class="footer">
+                <%- partial("_partial/footer") %>
+            </div>
+        </div>
+    </body>
+</html>

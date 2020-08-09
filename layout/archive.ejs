@@ -1,0 +1,16 @@
+<div class="archive-list">
+    <% var last; %>
+    <% page.posts.each(function (post) { %>
+    <div class="archive-item">
+        <% var now = post.date.year() %>
+        <% if (last != now) { %>
+        <% last = now %>
+        <div><%= last %></div>
+        <% } %>    
+        <div>
+            <%= post.title %>
+            <%- date(post.date, 'YYYY-MM-DD') %>
+        </div>
+    </div>
+    <% }) %>
+</div>

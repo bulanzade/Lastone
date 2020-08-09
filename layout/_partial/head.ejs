@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{config.language}}">
+    <head>
+        <meta charset="utf-8">
+
+        <!---页面为文章页面时，页面标题为文章标题；其他页面标题为_config.yml中设置的title-->
+        <% if (is_post()) { %>
+        <title>
+            <%- page.title %> | <%- config.title %>
+        </title>
+        <% } else if (is_archive()) { %>
+        <title>
+           Archives | <%- config.title %>
+        </title>
+        <% } else { %>
+        <title>
+            <%- config.title %>
+        </title>
+        <% } %>
+
+        <!--导入css文件-->
+        <%- css('css/style.css') %>
+    </head>    

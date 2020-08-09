@@ -1,0 +1,30 @@
+<% if (is_post()) { %>
+<nav id="post-nav">
+      <!--如果有上一篇-->
+      <% if (page.prev) { %>
+      <a href="<%- url_for(page.prev.path) %>">
+        <div class="post-div-prev">
+          <%- image_tag('./img/arrow_left.svg', {class: 'post-nav-icon-prev'}) %>
+          <%= page.prev.title %>
+        </div>
+      </a>
+      <!--如果有下一篇-->
+      <% }  if (page.next) { %>
+      <a href="<%- url_for(page.next.path) %>">
+        <div class="post-div-next">
+          <%= page.next.title %>
+          <%- image_tag('./img/arrow_right.svg', {class: 'post-nav-icon-next'}) %>
+        </div>
+      </a>
+      <% } %>
+</nav>
+<!--如果为主页或者是归档-->
+<% } else if ((is_home() || is_archive()) && (page.next || page.prev)) { %>
+<nav id="home-nav">
+    <%- paginator
+    ({
+      prev_text: '◀',
+      next_text: '▶'
+    }) %>
+</nav>
+<% } %>

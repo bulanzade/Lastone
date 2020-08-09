@@ -1,0 +1,29 @@
+<article>
+    <header class="article-header">
+        <% if (!is_home()) { %>
+        <h1 class="article-title"><%= post.title %></h1>
+        <a class="article-date" href="<%- url_for(post.path) %>" target="blank"> 
+            <%- image_tag('./img/time.svg', {class: 'article-date-icon'}) %>
+            <%- date(post.date, 'YYYY-MM-DD') %>
+        </a>
+        <% } else { %>
+        <h1><a class="article-title" href="<%- url_for(post.path) %>" target="blank"><%= post.title %></a></h1>
+        <a class="article-date"> 
+            <%- image_tag('./img/time.svg', {class: 'article-date-icon'}) %>
+            <%- date(post.date, 'YYYY-MM-DD') %>
+        </a>
+        <% } %>
+    </header>
+
+    <% if (is_home()) { %>
+    <div class="article-content">
+        <%- post.excerpt %>
+    </div>
+    <% } else { %>
+    <div class="article-content">
+        <%- post.content %>
+    </div>
+    <% } %>
+    <!--分割线-->
+    <div class="split-line"></div>
+</article>  

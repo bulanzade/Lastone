@@ -1,0 +1,7 @@
+<section class="article-list">
+    <% page.posts.each(function (post) { %>
+        <div class="article-list-item">
+            <%- partial("_partial/article", {post}) %>
+        </div>
+    <% }) %>
+</section>
